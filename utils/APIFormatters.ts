@@ -1,5 +1,5 @@
 import { Categories } from '../types/categoryTypes';
-import { Item } from '../types/itemTypes';
+import { Item, Items, ItemDetail } from '../types/itemTypes';
 import { FALLBACK_CONSTANTS } from '../constants/constants';
 
 const filterCategories = (categories: Array<Categories>) => {
@@ -8,17 +8,17 @@ const filterCategories = (categories: Array<Categories>) => {
 };
 
 const trimResults = (results: Array<Object>) => {
-  return results.slice(0, 4).map((item: any): Array<Item> => [{ 
+  return results.slice(0, 4).map((item: any): Item => ({ 
     id: item.id,
     title: item.title,
     price: item.price,
     picture: item.thumbnail,
     condition: item.condition,
     free_shipping: item.shipping.free_shipping,
-  }]);
+  }));
 };
 
-export const itemsFormatter = (data: any) => {
+export const itemsFormatter = (data: any): Items => {
   return {
     author: {
       name: 'Isis',
@@ -29,7 +29,7 @@ export const itemsFormatter = (data: any) => {
   }
 };
 
-export const itemFormatter = (data: any) => {
+export const itemFormatter = (data: any): ItemDetail => {
   return {
     author: {
       name: 'Isis',
