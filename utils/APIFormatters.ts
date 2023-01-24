@@ -1,24 +1,26 @@
-interface Category {
-  id: String,
-  name: String,
-  results: Number,
-}
+import { Categories } from '../types/categoryTypes';
+import { Item } from '../types/itemTypes';
 
-interface Categories {
-  id: String,
-  name: String,
-  type: String,
-  values: Array<Category>
-}
+const filterCategories = (categories: Array<Categories>) => {
+  const category = categories.find((i) => i.id === 'category');
+  return category.values.map(i => i.name);
+};
 
-const filterCategories = (categories: Categories) => {
-  return categories.values.map(i => i.name)
-}
+const trimResults = (results: Array<Object>) => {
+  return results.slice(0, 4).map((item: any): Array<Item> => [{ 
+    id: item.id,
+    title: item.title,
+    price: item.price,
+    picture: item.thumbnail,
+    condition: item.condition,
+    free_shipping: item.shipping.free_shipping,
+  }]);
+};
 
-export const searchAPIFormatter = (data: any) => {
+export const itemsFormatter = (data: any) => {
   return {
     author: 'Isis Salamanca',
-    items: data.results.slice(0, 4),
-    categories: filterCategories(data.available_filters.find((i: { id: string; }) => i.id === 'category')),
+    items: trimResults(data.results),
+    categories: filterCategories(data.available_filters),
   }
 };
