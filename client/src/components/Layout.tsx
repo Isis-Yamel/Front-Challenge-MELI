@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styles from '@/styles/Layout.module.scss';
 
 import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 
 import { Roboto } from '@next/font/google'
 
@@ -25,6 +26,7 @@ const Layout = ({children}: Props) => {
       <main className={`${styles.main} ${roboto.className}`}>
         {children}
       </main>
+      <Footer/>
     </div>
   );
 };

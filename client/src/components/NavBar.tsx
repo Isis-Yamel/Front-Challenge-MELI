@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import React, { useState } from 'react';
+import { useRouter } from 'next/router'
 
 import navStyles from '@/styles/NavBar.module.scss';
 
 const NavBar = () => {
+  const router = useRouter();
   const [search, setSearch] = useState('');
   const [data, setData] = useState('');
 
@@ -11,8 +13,8 @@ const NavBar = () => {
     e.preventDefault();
     const res = await fetch(`http://localhost:8000/api/items?q=:${search}`);
     const data = await res.json();
-
     setData(data);
+    router.push('/items');
   };
 
   return (
