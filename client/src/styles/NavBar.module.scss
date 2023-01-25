@@ -1,0 +1,28 @@
+.navbar {
+  &__container {
+    display: flex;
+    background: #ffe800;
+  }
+
+  &__logo {
+    width: 20%;
+  }
+
+  &__bar__container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__bar {
+    width: 70%;
+    height: 32px;
+    border: none;
+  }
+
+  &__button {
+    border: none;
+    cursor: pointer;
+    height: 32px;
+  }
+}
