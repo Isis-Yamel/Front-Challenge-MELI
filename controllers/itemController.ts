@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { itemsFormatter, itemFormatter } from '../utils/APIFormatters';
 import { FALLBACK_CONSTANTS } from '../constants/constants';
+import fetch from 'cross-fetch';
 
 export const itemsSearch = async (req: Request, res: Response) => {
   const QUERY = req.query.q ? req.query.q : 'query';
