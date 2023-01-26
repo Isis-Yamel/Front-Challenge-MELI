@@ -4,12 +4,9 @@ import styles from '@/styles/Layout.module.scss';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 
-import { Roboto } from '@next/font/google'
+import { Open_Sans } from '@next/font/google'
 
-const roboto = Roboto({
-  weight: '100',
-  subsets: ['latin'],
-})
+const open = Open_Sans({ subsets: ['latin'] });
 
 type Props = {
   children: JSX.Element,
@@ -23,7 +20,7 @@ const Layout = ({children}: Props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <NavBar />
-      <main className={`${styles.main} ${roboto.className}`}>
+      <main className={`${styles.main} ${open.className}`}>
         {children}
       </main>
       <Footer/>

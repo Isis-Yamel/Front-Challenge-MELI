@@ -1,7 +1,9 @@
+@import "./constants/colors.scss";
+
 .navbar {
   &__container {
     display: flex;
-    background: #ffe800;
+    background: $yellow_meli;
   }
 
   &__logo {
