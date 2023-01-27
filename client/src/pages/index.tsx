@@ -1,4 +1,5 @@
 import ItemResults from '@/components/ItemResults';
+import BreadCrumb from '@/components/BreadCrumb';
 import {Item, Author} from '@/types/itemTypes';
 
 type Props = {
@@ -11,7 +12,10 @@ type Props = {
 
 export default function Home({data}: Props) { 
   return (
-    <ItemResults data={data.items}/>
+    <>
+      <BreadCrumb breadcrumbs={data}/>
+      <ItemResults data={data.items}/>
+    </>
   );
 };
 

@@ -1,0 +1,7 @@
+.breadcrumb {
+  &__container {
+    grid-column: 2/3;
+    grid-row: 1 / 2;
+    margin: 20px 0;
+  }
+}

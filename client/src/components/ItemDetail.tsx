@@ -17,8 +17,8 @@ const ItemDetail = ({item}: Props) => {
         height={150}
       />
       <div>
+        <p>$ {item.price}</p>
         <h3>{item.title}</h3>
-        <p>{item.price}</p>
       </div>
       <p>{item.condition}</p>
     </article>
