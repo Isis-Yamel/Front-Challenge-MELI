@@ -9,7 +9,7 @@ const Items = () => {
   
   return (
     <>
-      <BreadCrumb breadcrumbs={data}/>
+      <BreadCrumb breadcrumbs={data.items[0]}/>
       <ItemResults data={data.items}/>
     </>
   );

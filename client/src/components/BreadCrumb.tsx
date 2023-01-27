@@ -4,15 +4,19 @@ import Typography from '@mui/material/Typography';
 import breadStyles from '@/styles/BreadCrumb.module.scss';
 
 const BreadCrumb = ({breadcrumbs}: any) => {
-  console.log(breadcrumbs);
+  const fallback = ['Categories', 'Category'];
   
   return (
     <Breadcrumbs className={breadStyles.breadcrumb__container} aria-label="breadcrumb">
-      {breadcrumbs.items[0].bread.map((crumb: any) => (
+      {!!breadcrumbs.bread ? breadcrumbs.bread.map((crumb: any) => (
         <Typography key={crumb.id}>
           {crumb.name}
         </Typography>
-      ))}
+      )) : fallback.map((crumb, index) => {
+        <Typography key={index}>
+          {crumb}
+        </Typography>
+      })}
     </Breadcrumbs>
   );
 };

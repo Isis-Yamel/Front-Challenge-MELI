@@ -1,12 +1,16 @@
 @import "./constants/colors.scss";
+@import "./constants/media_queries.scss";
 
-.main {
-  display: grid;
-  grid-template-columns: 0.1fr 1fr 0.1fr;
-  grid-template-rows: 0.1fr 1fr;
+@media (min-width: $phone) {
+  .main {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+    grid-template-rows: 0.1fr 1fr;
+  }
 }
 
 .footer {
   margin: 20px;
   text-align: center;
 }
+
