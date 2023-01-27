@@ -29,7 +29,7 @@ The **.env file** will be provided via email. Create .env file inside **client**
 - `npm run lint`: Run the linters 
 - `npm run lint`: Run unit test with jest and react testing libreary (**STILL SOME SET UP NEEDED**)
 
-**Note:** To start app,  run `npm run dev`
+**Note:** To start app, change to the client directory and run `npm run dev`
 
 ## Tech notes
 
