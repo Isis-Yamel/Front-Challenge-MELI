@@ -1,12 +1,19 @@
 import Image from 'next/image'
-import React, { useState } from 'react';
+import React, { useState, useContext, SetStateAction } from 'react';
 import { useRouter } from 'next/router'
 import navStyles from '@/styles/NavBar.module.scss';
+
+import { SearchData } from '@/store/store';
+
+interface DataContext {
+  data: Array<Object>,
+  setData: React.Dispatch<SetStateAction<Object[]>>;
+}
 
 const NavBar = () => {
   const router = useRouter();
   const [search, setSearch] = useState('');
-  const [data, setData] = useState('');
+  const { setData } = useContext(SearchData) as DataContext;
 
   const handleSearch = async (e: any) => {
     e.preventDefault();
