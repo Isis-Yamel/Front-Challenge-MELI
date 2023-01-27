@@ -1,3 +1,5 @@
+import { SetStateAction} from "react";
+
 export interface Item {
   id: string,
   title: string,
@@ -10,4 +12,9 @@ export interface Item {
 export interface Author {
   name: string,
   lastName: string,
+}
+
+export interface DataContext {
+  data: any,
+  setData: React.Dispatch<SetStateAction<Object[]>>;
 }

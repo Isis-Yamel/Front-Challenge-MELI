@@ -1,6 +1,17 @@
+import React, { useContext } from 'react';
+import ItemResults from '@/components/ItemResults';
+import BreadCrumb from '@/components/BreadCrumb';
+import { SearchData } from '@/store/store';
+import { DataContext } from '@/types/itemTypes';
+
 const Items = () => {
+  const { data } = useContext(SearchData) as DataContext;
+  
   return (
-    <div> Items results </div>
+    <>
+      <BreadCrumb breadcrumbs={data}/>
+      <ItemResults data={data.items}/>
+    </>
   );
 };
 
