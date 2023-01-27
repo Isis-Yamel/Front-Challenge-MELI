@@ -32,7 +32,6 @@ const Item = ({data: {item}}: Props) => {
 
   useEffect(() => {
     if (!!data.items) setBread(data.items.find((i: any) => i.id === item.id))
-    console.log(data);
   }, [data]);
   
   return (
