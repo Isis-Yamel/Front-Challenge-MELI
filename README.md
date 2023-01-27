@@ -34,9 +34,14 @@ The **.env file** will be provided via email. Create .env file inside **client**
 ## Tech notes
 
 Server
-- I am only using the Authorization header to authenticate, but it was because I run out of time.
+- I am only using the Authorization header to authenticate because a problem in the jwt set up, the idea will be to sign the api with the token. So far Authorization header is a workaround.
 
 Client
+
+- Frontend is completely responsive and takes into account a11y, performance and SEO 
+
+![LightHouse audit](/public/assets/MELI.PNG)
+Performance will increase on prod build because js in not being minify
 
 - As I want the search bar to persist in each route, I make use of client side rendering to store the data retrieve from API and be consume from items route.
 
