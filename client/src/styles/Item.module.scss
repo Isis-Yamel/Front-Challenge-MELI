@@ -4,6 +4,7 @@
 .item {
   &__wrapper {
     background: $white;
+    grid-column: 2 / 3;
     width: 100%;
   }
 
@@ -19,10 +20,6 @@
 
 @media (min-width: $tablet) {
   .item {
-    &__wrapper {
-      width: 80%;
-    }
-
     &__container {
       width: 100%;
       display: grid;

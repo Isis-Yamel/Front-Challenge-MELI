@@ -16,7 +16,12 @@ export default function Home({data}: Props) {
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:8000/api/items?q=:query');
+  const res = await fetch('http://localhost:8000/api/items?q=:query', {
+    headers: {
+      "Content-type": "application/json; charset=UTF-8", 
+      "Authorization": `Bearer ${process.env.AUTH_TOKEN}`,
+    },
+  });
 
   const data = await res.json();
 

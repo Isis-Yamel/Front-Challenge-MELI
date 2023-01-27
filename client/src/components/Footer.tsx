@@ -1,6 +1,8 @@
+import styles from '@/styles/Layout.module.scss';
+
 const Footer = () => {
   return (
-    <footer> 
+    <footer className={styles.footer}> 
       <p>
         All rights reserved ®
       </p>

@@ -1,28 +1,32 @@
 @import "./constants/colors.scss";
 
 .navbar {
-  &__container {
-    display: flex;
+  &__layout {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
     background: $yellow_meli;
   }
 
-  &__logo {
-    width: 20%;
+  &__container {
+    grid-column: 2 / 3;
+    display: flex;
   }
 
   &__bar__container {
-    width: 80%;
+    width: 100%;
     display: flex;
     align-items: center;
   }
 
   &__bar {
-    width: 70%;
+    width: 100%;
     height: 32px;
     border: none;
+    margin-left: 20px;
   }
 
   &__button {
+    background: $light_gray;
     border: none;
     cursor: pointer;
     height: 32px;
