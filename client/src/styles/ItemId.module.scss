@@ -29,6 +29,10 @@
     cursor: pointer;
   }
 
+  &__image {
+    margin-top: 20px;
+  }
+
   &__price {
     font-size: 36px;
     margin-top: 10px;
@@ -69,7 +73,7 @@
   .itemDetail {
     &__image {
       width: 80%;
-      height: 600px;
+      height: 800px;
     }
   }
 }
