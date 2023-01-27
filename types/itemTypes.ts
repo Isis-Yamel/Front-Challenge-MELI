@@ -6,6 +6,7 @@ interface PriceItem {
 
 export interface Item {
   id: String,
+  bread: Array<Object>,
   title: String,
   price: PriceItem,
   picture: String,
@@ -18,9 +19,13 @@ interface Author {
   lastName: String,
 }
 
+export interface BreadItem {
+  category_id: String,
+  breadCrumb: Array<Object>
+}
+
 export interface Items {
   author: Author,
-  categories: Array<String>,
   items: Array<Item>
 }
 

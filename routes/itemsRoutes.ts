@@ -13,6 +13,6 @@ const authenticateToken = (req: Request, res: Response, next: any) => {
 };
 
 itemRoutes.get('/items', authenticateToken, itemsSearch);
-itemRoutes.get('/items/:id', itemDetail);
+itemRoutes.get('/items/:id', authenticateToken, itemDetail);
 
 export default itemRoutes;

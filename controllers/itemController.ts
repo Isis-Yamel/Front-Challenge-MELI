@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { itemsFormatter, itemFormatter } from '../utils/APIFormatters';
+import { itemsFormatter, itemFormatter, getBreadCrumb, addBreadCrumb } from '../utils/APIFormatters';
 import { FALLBACK_CONSTANTS } from '../constants/constants';
 import fetch from 'cross-fetch';
 
@@ -9,9 +9,10 @@ export const itemsSearch = async (req: Request, res: Response) => {
   
   try {
     let response = await (await fetch(URL)).json() as any;
-    const itemsResponse = Object.assign({}, response);
+    let responseBreadCrumb = await getBreadCrumb(response.results);
 
-    const formatData = itemsFormatter(itemsResponse);
+    let responseWithBreadcrumb = addBreadCrumb(response.results, responseBreadCrumb);
+    const formatData = itemsFormatter(responseWithBreadcrumb);
 
     res.status(200).json(formatData);
   } catch (err) {
