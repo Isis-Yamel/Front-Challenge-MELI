@@ -34,7 +34,7 @@ The **.env file** will be provided via email. Create .env file inside **client**
 ## Tech notes
 
 Server
-- I am only using the Authorization header to authenticate because a problem in the jwt set up, the idea will be to sign the api with the token. So far Authorization header is a workaround.
+- JWT was as the sign between front and back.
 
 Client
 
@@ -53,7 +53,7 @@ Due to time constrains, there is some things that could be improve.
 
 ### Server side 
 - Use babel for optimized production bundle and chunks (change npm scripts as well)
-- Authentication middlewre with JWT
+- Authentication middlewre with JWT in a separate file
 - Error handling middleware, reference here: [error middleware](https://dev.to/qbentil/how-to-write-custom-error-handler-middleware-in-expressjs-using-javascript-29j1)
 
 
