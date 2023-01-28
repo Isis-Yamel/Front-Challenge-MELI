@@ -16,5 +16,7 @@ export interface Author {
 
 export interface DataContext {
   data: any,
-  setData: React.Dispatch<SetStateAction<Object[]>>;
+  setData: React.Dispatch<SetStateAction<Object[]>>,
+  token: any,
+  setToken: React.Dispatch<SetStateAction<Object[]>>,
 }

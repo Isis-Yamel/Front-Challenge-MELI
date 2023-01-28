@@ -3,19 +3,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import navStyles from '@/styles/NavBar.module.scss';
-import { SearchData } from '@/store/store';
+import { StoreContext } from '@/store/store';
 import { DataContext } from '@/types/itemTypes';
 
 const NavBar = () => {
   const router = useRouter();
   const [search, setSearch] = useState('');
-  const { setData } = useContext(SearchData) as DataContext;
-
+  const { token, setData } = useContext(StoreContext) as DataContext;
+  
   const handleFetch = async () => {
     const res = await fetch(`http://localhost:8000/api/items?q=:${search}`, {
       headers: {
         "Content-type": "application/json; charset=UTF-8", 
-        "Authorization": `Bearer ${process.env.AUTH_TOKEN}`,
+        "Authorization": `Bearer ${token.token}`,
       },
     });
     const data = await res.json();

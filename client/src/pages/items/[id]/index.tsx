@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import BreadCrumb from '@/components/BreadCrumb';
 import itemStyle from '@/styles/ItemId.module.scss';
-import { SearchData } from '@/store/store';
+import { StoreContext } from '@/store/store';
 import { DataContext } from '@/types/itemTypes';
 
 type Price = {
@@ -27,7 +27,7 @@ type Props = {
 };
 
 const Item = ({data: {item}}: Props) => {
-  const { data } = useContext(SearchData) as DataContext;
+  const { data } = useContext(StoreContext) as DataContext;
   const [bread, setBread] = useState([]);
 
   useEffect(() => {

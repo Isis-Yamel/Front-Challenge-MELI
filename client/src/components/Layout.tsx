@@ -5,6 +5,9 @@ import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 
 import { Open_Sans } from '@next/font/google'
+import { useEffect, useContext } from 'react';
+import { StoreContext } from '@/store/store';
+import { DataContext } from '@/types/itemTypes';
 
 const open = Open_Sans({ subsets: ['latin'] });
 
@@ -12,7 +15,28 @@ type Props = {
   children: JSX.Element,
 };
 
+const signAuthor = {
+  author: {
+    name: 'Isis',
+    lastName: 'Salamanca'
+  }
+}
+
 const Layout = ({children}: Props) => {
+  const { setToken } = useContext(StoreContext) as DataContext;
+ // as we do not have login, I am authenticate on app load
+  useEffect(() => {
+    fetch('http://localhost:8000/login', {
+      method: 'POST',
+      headers: {
+        "Content-type": "application/json; charset=UTF-8", 
+      },
+      body: JSON.stringify(signAuthor)
+    })
+      .then((response) => response.json())
+      .then((token) => setToken(token))
+  }, []);
+
   return (
     <div>
       <Head>

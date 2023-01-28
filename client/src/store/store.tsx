@@ -5,14 +5,15 @@ type Props = {
   children: JSX.Element,
 };
 
-export const SearchData = createContext<DataContext | null>(null);
+export const StoreContext = createContext<DataContext | null>(null);
 
-export const Context = ({children}: Props) => {
+export const ContextProvider = ({children}: Props) => {
   const [data, setData] = useState<Array<Object>>([]);
+  const [token, setToken] = useState<Object>({});
 
   return (
-    <SearchData.Provider value={{data, setData}}>
+    <StoreContext.Provider value={{data, setData, token, setToken}}>
       {children}
-    </SearchData.Provider>
+    </StoreContext.Provider>
   )
 };
