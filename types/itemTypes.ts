@@ -6,12 +6,12 @@ interface PriceItem {
 
 export interface Item {
   id: String,
-  bread: Array<Object>,
   title: String,
   price: PriceItem,
   picture: String,
   condition: String,
   free_shipping: Boolean,
+  breadCrumb: Array<Object>,
 }
 
 interface Author {
@@ -40,5 +40,6 @@ export interface ItemDetail {
     free_shipping: Boolean, 
     sold_quantity: Number,
     description: String,
+    breadCrumb: Array<Object>,
   }
 }

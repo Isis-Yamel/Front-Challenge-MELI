@@ -9,7 +9,7 @@ import fetch from 'cross-fetch';
 const trimResults = (results: Array<Object>) => {
   return results.slice(0, 4).map((item: any): Item => ({ 
     id: item.id,
-    bread: item.bread,
+    breadCrumb: item.breadCrumb,
     title: item.title,
     price: item.price,
     picture: item.thumbnail,
@@ -35,6 +35,20 @@ export const getBreadCrumb = async (category: any) => {
   }));
 };
 
+/* This function takes one argument
+  * id (item id) https://api.mercadolibre.com/categories/MLA412445
+  * return the breadcrumb for a single item
+  * 
+  * format the response
+*/ 
+export const getItemBreadCrumb = async (id: any) => {
+  const response = await(await fetch(`https://api.mercadolibre.com/categories/${id}`)).json() as any;
+
+  return {
+    breadCrumb: response.path_from_root,
+  };
+};
+
 /* This function takes two params
   * response (results) https://api.mercadolibre.com/sites/MLA/search?q=:query
   * breadcrumb (response) https://api.mercadolibre.com/categories/MLA412445
@@ -53,7 +67,7 @@ export const addBreadCrumb = (response: any, breadcrumb: any) => {
         
         accu[id] = {
           ...accu[id],
-          bread: item.breadCrumb,
+          breadCrumb: item.breadCrumb,
         };
       }
     });
@@ -102,6 +116,7 @@ export const itemFormatter = (data: any): ItemDetail => {
       free_shipping: data.shipping.free_shipping,
       sold_quantity: data.sold_quantity,
       description: data.plain_text,
+      breadCrumb: data.breadCrumb,
     }
   }
 };

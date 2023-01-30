@@ -1,9 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import BreadCrumb from '@/components/BreadCrumb';
 import itemStyle from '@/styles/ItemId.module.scss';
-import { StoreContext } from '@/store/store';
-import { DataContext } from '@/types/itemTypes';
 
 type Price = {
   currency: string,
@@ -22,21 +19,15 @@ type Props = {
       free_shipping: boolean,
       sold_quantity: number,
       description: string,
+      breadCrumb: Array<Object>,
     }
   }
 };
 
 const Item = ({data: {item}}: Props) => {
-  const { data } = useContext(StoreContext) as DataContext;
-  const [bread, setBread] = useState([]);
-
-  useEffect(() => {
-    if (!!data.items) setBread(data.items.find((i: any) => i.id === item.id))
-  }, [data]);
-  
   return (
     <>
-    <BreadCrumb breadcrumbs={bread}/>
+    <BreadCrumb breadcrumbs={item.breadCrumb}/>
       <div className={itemStyle.itemDetail__container}>
         <Image
           className={itemStyle.itemDetail__image}

@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { itemsFormatter, itemFormatter, getBreadCrumb, addBreadCrumb } from '../utils/APIFormatters';
+import { itemsFormatter, itemFormatter, getBreadCrumb, getItemBreadCrumb, addBreadCrumb } from '../utils/APIFormatters';
 import { FALLBACK_CONSTANTS } from '../constants/constants';
 import fetch from 'cross-fetch';
 
@@ -33,7 +33,9 @@ export const itemDetail = async (req: Request, res: Response) => {
     const [item, itemDescription] = await Promise.all([response, responseDescription])
       .then(values => Promise.all(values.map(value => value.json())));
 
-    const itemResponse = Object.assign({}, item, itemDescription);
+    const breadcrumb = await getItemBreadCrumb(item.category_id)
+
+    const itemResponse = Object.assign({}, item, itemDescription, breadcrumb);
     const formatData = itemFormatter(itemResponse);
 
     res.status(200).json(formatData);
