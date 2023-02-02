@@ -1,4 +1,5 @@
 module.exports = {
+  "transform": {},
   "preset": "ts-jest",
   "testEnvironment": "node",
   "coverageDirectory": "coverage",
@@ -13,7 +14,7 @@ module.exports = {
     "coverage"
   ],
   "testMatch": [
-    "**/?(*.)+(spec|test).(js|ts|tsx)"
+    "**/?(*.)+(spec).(js|ts|tsx)"
   ],
   "bail": 1,
   "clearMocks": true,

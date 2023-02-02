@@ -16,6 +16,8 @@ Also, concurrently is being used in the dev command to run in parallel nodemon a
 
 - `npm run build`: Compile the ts file into valid javascript code
 
+- `npm run test:back`: Runs the unit test with jest
+
 **Note:** To start dev env, first run `npm run build` and then `npm run dev`
 
 ## Client
@@ -27,7 +29,7 @@ The **.env file** will be provided via email. Create .env file inside **client**
 
 - `npm run dev`: Start the client in dev mode 
 - `npm run lint`: Run the linters 
-- `npm run lint`: Run unit test with jest and react testing libreary (**STILL SOME SET UP NEEDED**)
+- `npm run test`: Run unit test with jest and react testing libreary (**STILL SOME SET UP NEEDED**)
 
 **Note:** To start app, change to the client directory and run `npm run dev`
 
@@ -64,6 +66,6 @@ Due to time constrains, there is some things that could be improve.
 
 ## Testing
 
-- **Backend Unit Test**: Set up made with jest. Pending mock the cross-fetch library
+- **Backend Unit Test**: Set up made with jest and super-test
 - **Frontend Unit Test**: Set up with Jest and React Testing Library. Pending moduleNameMapper is not working
 - **E2E Test**: The idea will be use Cypress. Not done

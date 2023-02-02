@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q public/dist/index.js\"",
-    "test": "jest --detectOpenHandles --forceExit --verbose"
+    "test:back": "jest --detectOpenHandles --forceExit --verbose"
   },
   "repository": {
     "type": "git",
